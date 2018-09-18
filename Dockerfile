@@ -2,19 +2,15 @@ FROM alpine
 MAINTAINER svm@familyc.ru
 
 ENV TZ=Asia/Yekaterinburg \
-	TG_BOT_ON=True \
-	TG_BOT_TOKEN="123456789" \
-	TG_BOT_PROXY=False \
-	TG_BOT_PROXY=8.8.8.8 \
-	TG_BOT_PROXY_AUTH=False\
-	TG_BOT_PROXY_LOGIN=test \
-	TG_BOT_PROXY_PASS=test \
+	SOPDS_TELEBOT=True \
+	SOPDS_TELEBOT_API_TOKEN=1234567890 \
+    SOPDS_TELEBOT_AUTH=True \
     SOPDS_ROOT_LIB="/library" \
     SOPDS_INPX_ENABLE=True \
     SOPDS_LANGUAGE=ru-RU \
     MIGRATE=False \
     VERSION=0.46
-
+	
 RUN apk add --update tzdata bash nano build-base python3-dev libxml2-dev libxslt-dev unzip postgresql postgresql-dev libc-dev jpeg-dev zlib-dev mc htop
 RUN cp /usr/share/zoneinfo/$TZ /etc/localtime
 RUN echo $TZ > /etc/timezone
